@@ -19,6 +19,7 @@ body{
 
 .container{
     display: flex;
+    width: 50rem;
     border: 3px solid color-mix(in srgb, maroon 70%, blue 50%);
     background-color:  color-mix(in srgb, blue 50%, pink 90%);
     padding: 20px;
@@ -55,6 +56,8 @@ body{
     display: flex;
     padding: 10px;
     gap: 1rem;
+    /* border: 2px solid red; */
+    justify-content: center;
  
 }
 
