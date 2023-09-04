@@ -13,29 +13,48 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    flex-direction: column;
+    background-image: linear-gradient(to top left,purple 30%, white 150%);
  
 }
 
 .container{
+
     display: flex;
-    width: 50rem;
-    border: 3px solid color-mix(in srgb, maroon 70%, blue 50%);
+    width: 60rem;
+    border: 5px solid color-mix(in srgb, maroon 100%, blue 50%);
     background-color:  color-mix(in srgb, blue 50%, pink 90%);
     padding: 20px;
     flex-direction: column;
     border-radius: 10px;
+    box-shadow: 3px 5px 6px rgb(42, 22, 47);
+
+
     
+}
+
+h1{
+
+    margin: 20px;
+    font-size: 4em;
+    font-weight: lighter;
+    color: white;
+
 }
 
 .btnDelete,
 .btnAdd,
-.btnClear{
-    font-size: 1.2rem;
+.btnDeleteAdd{
+    font-size: 1.4rem;
     border: transparent;
-    background-color: color-mix(in srgb, maroon 70%, blue 50%);
+    background-color: color-mix(in srgb, maroon 100%, blue 50%);
+    outline:2px solid #ccc;
     color: white;
-    padding: .9rem .9rem;
+    padding:  0 2rem;
     border-radius: 1.5rem;
+    
+
+
 }
 
 .btnDelete:hover{
@@ -46,28 +65,66 @@ body{
     transform: scale(120%); 
     cursor: pointer;
 }
-.btnClear:hover{
+
+.btnDeleteAdd:hover{
     transform: scale(120%); 
     cursor: pointer;
 }
 
 
+
 .lista{
     display: flex;
-    padding: 10px;
-    gap: 1rem;
+    padding: 10px 0 20px;
+    gap: 1.3rem;
     justify-content: center;
- 
+    border-radius: 5px;
+    margin-bottom: 5em;
+    border-bottom: 1.5px solid #ccc;
+    
+  
+}
+
+.listaAdd{
+    
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+    gap: 2em;
+    
 }
 
 .input{
     border: 1px solid transparent;
-    padding: 1rem;
+    padding: 2rem 4rem;
     color: rgb(57, 57, 57);
     border-radius: 1.5rem;
     font-weight: bold;
-     
+    font-size: 1.5rem;
 }
+
+.inputAdd{
+    border: 1px solid transparent;
+    padding: 1rem 2rem;
+    color: rgb(57, 57, 57);
+    font-weight: bold;
+    font-size: 1.3rem;
+    border-radius: 8px;
+
+}
+
+.inputAdd:focus{
+    outline: transparent;
+    outline-offset: 2px;
+    transition: outline-offset .2s ease;
+    
+}
+
+.inputAdd:hover{
+    cursor: pointer;
+}
+
+
 
 .input:focus{
     outline: transparent;
@@ -79,6 +136,4 @@ body{
 .input:hover{
   cursor: pointer;
 }
-    
-
 

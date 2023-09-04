@@ -4,14 +4,15 @@ const list = document.querySelector(".lista")
 const input = document.querySelector(".input")
 const btnDelete = document.querySelector(".btnDelete")
 const btnAdd = document.querySelector(".btnAdd")
-const btnClear = document.querySelector(".btnClear")
+
 
 
 window.addEventListener("DOMContentLoaded", carregarPagina)
 
 
-btnClear.addEventListener("click", atualizar)
+
 btnAdd.addEventListener("click", add)
+
 
 
 input.addEventListener("mouseover",  focar)
@@ -38,34 +39,45 @@ function carregarPagina(){
 }
 
 
+function add(e){
+     let element = e.currentTarget.parentNode
+     let firsChild = element.firstElementChild
+     let value = firsChild.value
+     if(value !== ""){
+        listInputs.push(value)
+        saveLocalstorage(listInputs)
+        criarLista(value)
+        firsChild.value = ""
+   
+     }
+   
+   
+}
+
+
 function criarLista(valor){
 
      const list = document.createElement("div")
      const input = document.createElement("input")
      const btnDelete = document.createElement("button")
-     const btnAdd = document.createElement("button")
-     const btnClear = document.createElement("button")
+
+
   
      input.value = valor
     
      btnDelete.textContent = "delete"
-     btnAdd.textContent = "adicionar"
-     btnClear.textContent = "atualizar"
-  
-     
-  
-     list.classList.add("lista")
-     input.classList.add("input")
-     btnAdd.classList.add("btnAdd")
-     btnClear.classList.add("btnClear")
-     btnDelete.classList.add("btnDelete")
+
+
+     list.classList.add("listaAdd")
+     input.classList.add("inputAdd")
+     btnDelete.classList.add("btnDeleteAdd")
      
      input.setAttribute("type", "text")
      
      list.appendChild(input)
      list.appendChild(btnDelete)
-     list.appendChild(btnAdd) 
-     list.appendChild(btnClear)
+ 
+
      
   
      //add alguns styles para os novos elementos
@@ -74,8 +86,6 @@ function criarLista(valor){
   
      //add funções nos botões nas listas novas
      btnDelete.addEventListener("click", removeFromlocalStorage)
-     btnAdd.addEventListener("click", add)
-     btnClear.addEventListener("click", atualizar)
   
      
      container.appendChild(list)
@@ -84,26 +94,11 @@ function criarLista(valor){
 }
 
 
-function add(e){
-  let element = e.currentTarget.parentNode
-  let firsChild = element.firstElementChild
-  let value = firsChild.value
-  if(value !== ""){
-     listInputs.push(value)
-     saveLocalstorage(listInputs)
-     criarLista(value)
-     firsChild.value = ""
-
-  }
-
-
-}
 
 
 
-function atualizar(){
- //////
-}
+
+
 
 function saveLocalstorage(listInputs){
     
