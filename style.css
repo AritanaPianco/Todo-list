@@ -27,7 +27,7 @@ body{
     padding: 20px;
     flex-direction: column;
     border-radius: 10px;
-    box-shadow: 3px 5px 6px rgb(42, 22, 47);
+    box-shadow: 3px 5px 10px -1px rgb(42, 22, 47);
 
 
     
@@ -42,7 +42,7 @@ h1{
 
 }
 
-.btnDelete,
+.btnClear,
 .btnAdd,
 .btnDeleteAdd{
     font-size: 1.4rem;

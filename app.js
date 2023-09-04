@@ -2,16 +2,16 @@
 const container = document.querySelector(".container")
 const list = document.querySelector(".lista")
 const input = document.querySelector(".input")
-const btnDelete = document.querySelector(".btnDelete")
+const btnClear = document.querySelector(".btnClear")
 const btnAdd = document.querySelector(".btnAdd")
 
-
+//aqui eu crio uma array para guardar os valores dos inputs
+let listInputs = []
 
 window.addEventListener("DOMContentLoaded", carregarPagina)
 
-
-
 btnAdd.addEventListener("click", add)
+btnClear.addEventListener("click", clear)
 
 
 
@@ -55,6 +55,31 @@ function add(e){
 }
 
 
+function clear(e){
+    let element = e.target.parentNode
+    let container = element.parentNode
+ 
+    let targetElement = container.querySelectorAll(".listaAdd")
+    
+    
+    
+    targetElement.forEach((e) => {
+         let input = e.firstElementChild
+         input.value = ""
+         
+     })
+    
+    let dados = JSON.parse(localStorage.getItem("tasks"))
+
+    for(let i = 0; i < dados.length; i++){
+         dados.splice(dados.indexOf(i),1) 
+         
+     }
+     localStorage.setItem("tasks", JSON.stringify(dados))
+
+}
+
+
 function criarLista(valor){
 
      const list = document.createElement("div")
@@ -62,8 +87,7 @@ function criarLista(valor){
      const btnDelete = document.createElement("button")
 
 
-  
-     input.value = valor
+     input.value = valor// Add o novo valor do input no Html e localstorage
     
      btnDelete.textContent = "delete"
 
@@ -78,8 +102,6 @@ function criarLista(valor){
      list.appendChild(btnDelete)
  
 
-     
-  
      //add alguns styles para os novos elementos
      input.addEventListener("mouseover",  focar)
      input.addEventListener("mouseout",  desfocar)
@@ -87,16 +109,10 @@ function criarLista(valor){
      //add funções nos botões nas listas novas
      btnDelete.addEventListener("click", removeFromlocalStorage)
   
-     
      container.appendChild(list)
      
 
 }
-
-
-
-
-
 
 
 
@@ -108,8 +124,6 @@ function saveLocalstorage(listInputs){
 
  }
   
-
-
 function removeFromlocalStorage(e){
      let element = e.target.parentNode
      let inputValue = element.firstElementChild.value
@@ -142,10 +156,6 @@ function removeFromlocalStorage(e){
    
 }
   
-
-
-//aqui eu crio uma array para guardar os valores dos inputs
-let listInputs = []
 
 
 
